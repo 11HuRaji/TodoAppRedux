@@ -16,7 +16,8 @@ header {
 }
 
 header,
-form {
+form,
+.fact-box {
     min-height: 20vh;
     display: flex;
     justify-content: center;
@@ -43,9 +44,6 @@ form button:hover {
     color: white;
 }
 
-form label {
-    padding-right: 10px;
-}
 .todo-container {
     display: flex;
     justify-content: center;
@@ -72,8 +70,9 @@ form label {
     padding: 1rem;
 }
 
-.todo li {
+.todo-item {
     flex: 1;
+    padding: 0rem 0.5rem;
 }
 
 .trash-btn,
@@ -88,15 +87,6 @@ form label {
 
 .complete-btn {
     background: rgb(11, 212, 162);
-}
-
-.todo-item {
-    padding: 0rem 0.5rem;
-}
-
-.fa-trash,
-.fa-check {
-    pointer-events: none;
 }
 
 .fall {
@@ -143,4 +133,8 @@ select {
     background: #ff6f47;
     cursor: pointer;
     pointer-events: none;
+}
+
+.fact-box {
+    padding: 1rem;
 }
