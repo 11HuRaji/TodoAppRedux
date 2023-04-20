@@ -15,9 +15,9 @@ function App() {
   return (
     <div>
       <header>Sarah's Todo List</header>
-      <form>
+      <form onSubmit={handleSubmit}>
         <input type="text" className="todo-input" onChange={handleInput} />
-	      <button type="submit" className="todo-button" onClick={handleSubmit}>Add</button>
+	      <button type="submit" className="todo-button">Add</button>
       </form>
     </div>
   );
