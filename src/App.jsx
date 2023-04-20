@@ -17,7 +17,7 @@ function App() {
       <header>Sarah's Todo List</header>
       <form onSubmit={handleSubmit}>
         <input type="text" className="todo-input" onChange={handleInput} />
-	      <button type="submit" className="todo-button">Add</button>
+	<button type="submit" className="todo-button">Add</button>
       </form>
     </div>
   );
