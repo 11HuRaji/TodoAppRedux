@@ -1,25 +1,38 @@
-import React, {useState} from 'react';
-import './App.css';
+import React, { useState, useEffect } from "react";
+import { TodoForm, TodoList } from "./components";
+import "./App.css";
 
 function App() {
-  const [inputText, setInputText] = useState('');
+  const [inputText, setInputText] = useState("");
+  const [todos, setTodos] = useState([]);
+  const [status, setStatus] = useState("all");
+  const [fTodos, setFTodos] = useState([]);
 
-  function handleInput(e) {
-    setInputText(e.target.value);
-  }
+  const handleFilter = () => {
+    if (status === "completed") {
+      setFTodos(todos.filter((todo) => todo.completed == true));
+    } else if (status === "uncompleted") {
+      setFTodos(todos.filter((todo) => todo.completed == false));
+    } else {
+      setFTodos(todos);
+    }
+  };
 
-  function handleSubmit(e) {
-    e.preventDefault();
-  }
+  useEffect(() => {
+    handleFilter();
+  }, [status, todos]);
 
   return (
-    <div>
-      <header>Sarah's Todo List</header>
-      <form onSubmit={handleSubmit}>
-        <input type="text" className="todo-input" onChange={handleInput} />
-	<button type="submit" className="todo-button">Add</button>
-      </form>
-    </div>
+    <>
+      <TodoForm
+        setInputText={setInputText}
+        inputText={inputText}
+        todos={todos}
+        setTodos={setTodos}
+        setStatus={setStatus}
+      />
+      <TodoList todos={fTodos} setTodos={setTodos} />
+    </>
   );
 }
 
